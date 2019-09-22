@@ -1,0 +1,24 @@
+<div class="card">
+    <div class="card-body">
+        <form (ngSubmit)="addCancion(Nombre, Artista, Album, Anio, Genero)">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Nombre" #Nombre>
+            </div>
+            <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Artista" #Artista>
+            </div>
+            <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Álbum" #Album>
+            </div>
+            <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Año" #Anio>
+            </div>
+            <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Género"  #Genero>
+            </div>
+            <button class="btn btn-primary btn-block">
+                Guardar
+            </button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,13 @@
+<div class="card mb-2">
+    <div class="card-header d-flex justify-content-between align-item-center">
+        {{cancion.nombre}}
+    </div>
+    <button class="btn btn-primary" (click) = "cancion.hide = !cancion.hide">Mostrar</button>
+    <button class="btn btn-danger" (click)="deleteCancion(cancion)">Eliminar</button>
+    <div class="card-body" [hidden]="cancion.hide">
+        {{cancion.artista}}
+        {{cancion.album}}
+        {{cancion.anio}}
+        {{cancion.genero}}
+    </div>
+</div>
