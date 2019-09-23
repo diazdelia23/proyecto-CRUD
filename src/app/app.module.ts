@@ -9,6 +9,9 @@ import { CancionComponent } from './components/cancion/cancion.component';
 import { CancionListComponent } from './components/cancion-list/cancion-list.component';
 import { CancionFormComponent } from './components/cancion-form/cancion-form.component';
 import { CancionService } from './services/cancion.service';
+import { CancionEditComponent } from './components/cancion-edit/cancion-edit.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { CancionEliminarComponent } from './components/cancion-eliminar/cancion-eliminar.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +19,10 @@ import { CancionService } from './services/cancion.service';
     NavigationComponent,
     CancionComponent,
     CancionListComponent,
-    CancionFormComponent
+    CancionFormComponent,
+    CancionEditComponent,
+    DashboardComponent,
+    CancionEliminarComponent
   ],
   imports: [
     BrowserModule,

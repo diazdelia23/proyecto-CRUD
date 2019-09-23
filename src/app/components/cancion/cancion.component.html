@@ -1,13 +1,27 @@
-<div class="card mb-2">
+<div class="card mb-4">
     <div class="card-header d-flex justify-content-between align-item-center">
-        {{cancion.nombre}}
+            <h5 class="card-title">{{cancion.nombre}}</h5>
+        <div>
+        <button class="btn btn-primary" (click) = "cancion.hide = !cancion.hide">Detalle</button>
+        <button class="btn btn-danger" (click)="deleteCancion(cancion)">Eliminar</button>
     </div>
-    <button class="btn btn-primary" (click) = "cancion.hide = !cancion.hide">Mostrar</button>
-    <button class="btn btn-danger" (click)="deleteCancion(cancion)">Eliminar</button>
-    <div class="card-body" [hidden]="cancion.hide">
-        {{cancion.artista}}
-        {{cancion.album}}
-        {{cancion.anio}}
-        {{cancion.genero}}
+    </div>
+        <div class="card-body" [hidden]="cancion.hide">
+                <li class="list-group-item">
+                    <h6 class="card-subtitle mb-2 text-muted">Artista:</h6>
+                    <p class="card-text">{{cancion.artista}}</p>
+                </li>
+                <li class="list-group-item">
+                        <h6 class="card-subtitle mb-2 text-muted">Album:</h6>
+                        <p class="card-text">{{cancion.album}}</p>
+                </li>
+                <li class="list-group-item">
+                        <h6 class="card-subtitle mb-2 text-muted">Año:</h6>
+                        <p class="card-text">{{cancion.anio}}</p>
+                </li>
+                <li class="list-group-item">
+                        <h6 class="card-subtitle mb-2 text-muted">Género:</h6>
+                        <p class="card-text">{{cancion.genero}}</p>
+                    </li>
     </div>
 </div>
