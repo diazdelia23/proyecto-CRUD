@@ -46,4 +46,14 @@ export class CancionService {
       }
     }
    }
+
+   getCancion(cancion: Cancion){
+    for(let i=0; i < this.canciones.length; i++){
+      if(cancion == this.canciones[i])
+      {
+        this.canciones.splice(i,1);
+        localStorage.setItem('canciones', JSON.stringify(this.canciones));
+      }
+    }
+   }
 }

@@ -1,0 +1,30 @@
+.btn-rose{
+    background-color: rgb(228, 144, 207);
+    color: azure;
+    
+}
+
+.btn-eliminar{
+    background-color: rgb(241, 64, 117);
+    color: azure;
+}
+
+.btn-rose:hover{
+    background-color: rgb(156, 90, 140);
+    color: azure;
+    
+    
+}
+
+.btn-eliminar:hover{
+    background-color: rgb(170, 40, 79);
+    color: azure;
+}
+
+.card-header {
+    background-color: rgba(230, 218, 225, 0.856)
+}
+
+.titulo{
+    font-family: 'Lobster', cursive;
+}

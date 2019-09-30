@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,10 +13,12 @@ import { CancionService } from './services/cancion.service';
 import { CancionEditComponent } from './components/cancion-edit/cancion-edit.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { CancionEliminarComponent } from './components/cancion-eliminar/cancion-eliminar.component';
+import { AlertModule, AlertService } from './_alert';
 
 @NgModule({
   declarations: [
     AppComponent,
+    //AlertModule,
     NavigationComponent,
     CancionComponent,
     CancionListComponent,
@@ -27,9 +30,12 @@ import { CancionEliminarComponent } from './components/cancion-eliminar/cancion-
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    AlertModule,
+    NgbModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
-  providers: [CancionService],
+  providers: [CancionService, AlertService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

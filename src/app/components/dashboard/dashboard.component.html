@@ -1,17 +1,47 @@
+<link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
 
-<h3>Top Canciones</h3>
-<div class="grid grid-pad">
-  <a *ngFor="let cancion of canciones" class="col-1-4">
-    <div class="module cancion">
-      <h4>{{cancion.Nombre}} - {{cancion.Artista}}</h4>
+<div class="row">
+    <div class="col-md-1">
     </div>
-  </a>
+    <div class="col-md-10">
+        <ngb-carousel *ngIf="images">
+            <ng-template ngbSlide>
+                <img [src]="images[0]" alt="Random first slide">
+                <div class="carousel-caption justify-content-center" >
+                    <h1 class="texto animated fadeInDown">Dale Play a la Vida</h1>
+                    <h4 class="animated flipInX">Ponle pausa a los malos momentos, stop a las tristezas, rebobina las alegrías y avanza, siempre avanza...</h4>
+                </div>
+            </ng-template>
+            <ng-template ngbSlide>
+                <img [src]="images[1]" alt="Random second slide">
+                <div class="carousel-caption justify-content-center">
+                    <h1 class="texto animated bounceInLeft">Al mal tiempo...</h1>
+                    <h4 class="animated bounceInRight">buena música</h4>
+                </div>
+            </ng-template>
+            <ng-template ngbSlide>
+                <img [src]="images[2]" alt="Random third slide">
+                <div class="carousel-caption justify-content-center">
+                    <h1 class="texto animated zoomInDown">La vida es una canción</h1>
+                    <h4 class="animated lightSpeedIn">Que no debes dejar de bailar nunca.</h4>
+                </div>
+            </ng-template>
+        </ngb-carousel>
+    </div>
+    <div class="col-md-1">
+    </div>
 </div>
 
 
 
-        <div class="col-md-12">
-            <img src="https://wallpaperstock.net/guitarra-el%C3%A9ctrica-wallpapers_41736_1920x1200.jpg" class="img-fluid" alt="Responsive image">
-        </div>
 
-    
+<div class="container">
+<h3 class="text">Algunas Canciones...</h3>
+<div class="grid grid-pad">
+    <a *ngFor="let cancion of canciones" class="col-1-4">
+        <div class="module cancion">
+            <h4>{{cancion.nombre}} - {{cancion.artista}}</h4>
+        </div>
+    </a>
+</div>
+</div>

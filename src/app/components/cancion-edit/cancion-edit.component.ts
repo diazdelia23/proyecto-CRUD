@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CancionService } from 'src/app/services/cancion.service';
 
 @Component({
   selector: 'app-cancion-edit',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CancionEditComponent implements OnInit {
 
-  constructor() { }
+  constructor(public cancionSerivcio: CancionService) { }
 
   ngOnInit() {
   }

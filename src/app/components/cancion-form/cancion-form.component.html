@@ -1,26 +1,51 @@
-<div class="col-md-5 text-center">
-<div class="card">
-    <div class="card-body">
-        <form (ngSubmit)="addCancion(Nombre, Artista, Album, Anio, Genero)">
-            <div class="form-group">
-                <input type="text" class="form-control" placeholder="Nombre" #Nombre>
-            </div>
-            <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Artista" #Artista>
-            </div>
-            <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Álbum" #Album>
-            </div>
-            <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Año" #Anio>
-            </div>
-            <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Género"  #Genero>
-            </div>
-            <button class="btn btn-primary btn-block">
-                Guardar
-            </button>
-        </form>
-    </div>
+<div class="container text-center">
+    <alert></alert>
 </div>
+<link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
+<div class="row justify-content-center">
+    <h1 class="text">Agrega una canción</h1>
+</div>
+<div class="row justify-content-center">
+    <div class="col-md-4" text-align="center">
+        <div class="card">
+            <div class="card-body">
+                <form [formGroup]="cancionForm" (ngSubmit)="addCancion(Nombre, Artista, Album, Anio, Genero)" novalidate>
+                    <div class="form-group">
+                        <label for="name">Nombre</label>
+                        <input formControlName="name" type="text" class="form-control" placeholder="Nombre"
+                            maxlength="100" id="nombre" required #Nombre>
+                            <div *ngIf="name.touched && name.hasError('required')">Ingrese Nombre</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="artist">Artista</label>
+                        <input formControlName="artist" type="text" class="form-control" placeholder="Artista" maxlength="100"
+                            id="artista" #Artista required>
+                            <div *ngIf="artist.touched && artist.hasError('required')">Ingrese Artista</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="album">Álbum</label>
+                        <input formControlName="album" type="text" class="form-control" placeholder="Álbum" maxlength="100"
+                            id="album" #Album required>
+                            <div *ngIf="album.touched && album.hasError('required')">Ingrese Álbum</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="year">Año</label>
+                        <input formControlName="year" class="form-control" placeholder="Año" maxlength="4" type="number"
+                            id="anio" min="1900" max="2019" #Anio required>
+                            <div *ngIf="year.touched && year.hasError('required')">Ingrese Año</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="gender">Género</label>
+                        <input formControlName="gender" type="text" class="form-control" placeholder="Género" maxlength="50"
+                            id="validationCustom05" #Genero required>
+                            <div *ngIf="gender.touched && gender.hasError('required')">Ingrese Género</div>
+                    </div>
+                    <button class="btn btn-rose btn-block" type="submit" [disabled]="!cancionForm.valid">
+                        Guardar
+                    </button>
+                </form>
+            </div>
+        </div>
+
+    </div>
 </div>

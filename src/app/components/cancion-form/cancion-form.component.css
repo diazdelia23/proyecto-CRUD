@@ -1,0 +1,19 @@
+.btn-rose{
+    background-color: rgb(228, 144, 207);
+    color: azure;
+    
+}
+
+
+.btn-rose:hover{
+    background-color: rgb(156, 90, 140);
+    color: azure;
+    
+    
+}
+.text{
+    font-family: 'Lobster', cursive;
+    color: rgb(245, 133, 202);
+}
+
+
