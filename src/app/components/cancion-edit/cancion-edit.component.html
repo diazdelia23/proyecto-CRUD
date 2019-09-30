@@ -16,25 +16,25 @@
                     <div class="form-group">
                         <label for="artist">Artista</label>
                         <input formControlName="artist" type="text" class="form-control" placeholder="Artista" maxlength="100"
-                            id="artista" value="{{cancionObtenida.artista}}" #Artista required>
+                            id="artista" value="{{cancionObtenida.artista}}" #Artista required [(ngModel)]="cancionObtenida.artista">
                             <div class="error" *ngIf="artist.pristine && artist.hasError('required')">Ingrese Artista</div>
                     </div>
                     <div class="form-group">
                         <label for="album">Álbum</label>
                         <input formControlName="album" type="text" class="form-control" placeholder="Álbum" maxlength="100"
-                            id="album" value="{{cancionObtenida.album}}" #Album required>
+                            id="album" value="{{cancionObtenida.album}}" #Album required [(ngModel)]="cancionObtenida.album">
                             <div class="error" *ngIf="album.pristine && album.hasError('required')">Ingrese Álbum</div>
                     </div>
                     <div class="form-group">
                         <label for="year">Año</label>
                         <input formControlName="year" class="form-control" placeholder="Año" maxlength="4" type="number"
-                            id="anio" min="1900" max="2019" value="{{cancionObtenida.anio}}" #Anio required>
+                            id="anio" min="1900" max="2019" value="{{cancionObtenida.anio}}" #Anio required [(ngModel)]="cancionObtenida.anio">
                             <div class="error" *ngIf="year.pristine && year.hasError('required')">Ingrese Año</div>
                     </div>
                     <div class="form-group">
                         <label for="gender">Género</label>
                         <input formControlName="gender" type="text" class="form-control" placeholder="Género" maxlength="50"
-                            id="genero" value="{{cancionObtenida.genero}}" #Genero required>
+                            id="genero" value="{{cancionObtenida.genero}}" #Genero required [(ngModel)]="cancionObtenida.genero">
                             <div class="error" *ngIf="gender.pristine && gender.hasError('required')">Ingrese Género</div>
                     </div>
                     <button class="btn btn-rose btn-block" type="submit" [disabled]="!cancionForm.valid">

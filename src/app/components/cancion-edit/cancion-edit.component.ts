@@ -42,6 +42,10 @@ export class CancionEditComponent implements OnInit {
 
   editCancion(){
     console.log(this.cancionObtenida);
+    console.log(this.cancionSerivcio.getCanciones());
+    this.cancionSerivcio.updateCancion(this.cancionObtenida);    
+    console.log(this.cancionSerivcio.getCanciones());
+    this.goBack();
   }
 
   getCancion(): void {

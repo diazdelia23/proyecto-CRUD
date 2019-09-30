@@ -58,4 +58,20 @@ export class CancionService {
       }
     }
    }
+
+   updateCancion(cancion: Cancion){
+    //this.canciones.push(cancion);
+    let canciones: Cancion[] = [];
+    canciones = JSON.parse(localStorage.getItem('canciones'));
+    console.log(canciones);
+    for(let i=0; i < this.canciones.length; i++){
+      if(cancion.id == this.canciones[i].id)
+      {
+        console.log(cancion);
+        canciones.splice(i,1,cancion);
+      }
+    }
+    console.log(canciones);
+    localStorage.setItem('canciones', JSON.stringify(canciones));   
+   }
 }
