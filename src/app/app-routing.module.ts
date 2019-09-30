@@ -8,8 +8,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/inicio', pathMatch: 'full' },
-  //{ path: 'detail/:id', component: HeroDetailComponent },
-  { path: 'editar', component: CancionEditComponent },
+  { path: 'editar/:id', component: CancionEditComponent },
   { path: 'inicio', component: DashboardComponent},
   { path: 'agregar', component: CancionFormComponent },
   { path: 'lista', component: CancionListComponent }

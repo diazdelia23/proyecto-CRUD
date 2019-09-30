@@ -16,4 +16,14 @@
     color: rgb(245, 133, 202);
 }
 
+.error{
+    color: rgb(255, 62, 143);
+}
 
+input:invalid {
+    box-shadow: 0 0 5px 1px rgb(255, 62, 143);
+  }
+  
+  input:focus:invalid {
+    outline: none;
+  }

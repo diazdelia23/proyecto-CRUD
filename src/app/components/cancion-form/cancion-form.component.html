@@ -14,31 +14,31 @@
                         <label for="name">Nombre</label>
                         <input formControlName="name" type="text" class="form-control" placeholder="Nombre"
                             maxlength="100" id="nombre" required #Nombre>
-                            <div *ngIf="name.touched && name.hasError('required')">Ingrese Nombre</div>
+                            <div class="error" *ngIf="name.touched && name.hasError('required')">Ingrese Nombre</div>
                     </div>
                     <div class="form-group">
                         <label for="artist">Artista</label>
                         <input formControlName="artist" type="text" class="form-control" placeholder="Artista" maxlength="100"
                             id="artista" #Artista required>
-                            <div *ngIf="artist.touched && artist.hasError('required')">Ingrese Artista</div>
+                            <div class="error" *ngIf="artist.touched && artist.hasError('required')">Ingrese Artista</div>
                     </div>
                     <div class="form-group">
                         <label for="album">Álbum</label>
                         <input formControlName="album" type="text" class="form-control" placeholder="Álbum" maxlength="100"
                             id="album" #Album required>
-                            <div *ngIf="album.touched && album.hasError('required')">Ingrese Álbum</div>
+                            <div class="error" *ngIf="album.touched && album.hasError('required')">Ingrese Álbum</div>
                     </div>
                     <div class="form-group">
                         <label for="year">Año</label>
                         <input formControlName="year" class="form-control" placeholder="Año" maxlength="4" type="number"
                             id="anio" min="1900" max="2019" #Anio required>
-                            <div *ngIf="year.touched && year.hasError('required')">Ingrese Año</div>
+                            <div class="error" *ngIf="year.touched && year.hasError('required')">Ingrese Año</div>
                     </div>
                     <div class="form-group">
                         <label for="gender">Género</label>
                         <input formControlName="gender" type="text" class="form-control" placeholder="Género" maxlength="50"
                             id="validationCustom05" #Genero required>
-                            <div *ngIf="gender.touched && gender.hasError('required')">Ingrese Género</div>
+                            <div class="error" *ngIf="gender.touched && gender.hasError('required')">Ingrese Género</div>
                     </div>
                     <button class="btn btn-rose btn-block" type="submit" [disabled]="!cancionForm.valid">
                         Guardar

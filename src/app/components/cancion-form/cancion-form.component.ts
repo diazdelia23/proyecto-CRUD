@@ -15,6 +15,18 @@ export class CancionFormComponent implements OnInit {
 
   cancion: Cancion = new Cancion();
   constructor(public cancionServicio : CancionService, private alertService: AlertService, private formBuilder: FormBuilder) { 
+    this.validar();
+    
+  }
+  
+  ngOnInit() {
+  }
+
+  cancionForm: any;
+  todasCanciones: Cancion[];
+  id: number;
+
+  validar(){
     this.cancionForm = this.formBuilder.group({
       name: ['', [Validators.required, Validators.maxLength(100)]],
       artist: ['', [Validators.required, Validators.maxLength(100)]],
@@ -23,11 +35,7 @@ export class CancionFormComponent implements OnInit {
       gender: ['', [Validators.required, Validators.maxLength(100)]]
     });
   }
-  
-  ngOnInit() {
-  }
 
-  cancionForm: any;
 
 
   success(message: string) {
@@ -36,8 +44,12 @@ export class CancionFormComponent implements OnInit {
 
   addCancion(Nombre: HTMLInputElement , Artista: HTMLInputElement, Album: HTMLInputElement, Anio: HTMLInputElement, Genero: HTMLInputElement){
     console.log('Agregando..', Nombre.value);
+    this.todasCanciones = this.cancionServicio.getCanciones();
+    this.id = Math.max.apply(Math, this.todasCanciones.map(function(Cancion) { return Cancion.id; }))
+    this.id = this.id + 1;
     this.cancionServicio.addCanciones(
       {
+        id: this.id,
         nombre: Nombre.value,
         artista: Artista.value,
         album: Album.value,
@@ -54,6 +66,7 @@ export class CancionFormComponent implements OnInit {
       Anio.value='';
       Genero.value='';
       Nombre.focus();
+      this.validar();
     return false;
   }
 
@@ -74,7 +87,7 @@ export class CancionFormComponent implements OnInit {
   }
 
   get gender() {
-    return this.cancionForm.get('name');
+    return this.cancionForm.get('gender');
   }
 
 }

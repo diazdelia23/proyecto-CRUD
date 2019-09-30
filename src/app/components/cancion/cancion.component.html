@@ -4,7 +4,7 @@
             <h5 class="titulo card-title">{{cancion.nombre}}</h5>
         <div>
         <button class="btn btn-rose" (click) = "cancion.hide = !cancion.hide">Detalle</button>
-        <button type="button" class="btn btn-info">Editar</button>
+        <button type="button" class="btn btn-info" routerLink="/editar/{{cancion.id}}">Editar</button>
         <button class="btn btn-eliminar " (click)="deleteCancion(cancion)">Eliminar</button>
     </div>
     </div>

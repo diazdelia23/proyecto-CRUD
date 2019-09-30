@@ -24,7 +24,8 @@ export class CancionService {
    }
 
    addCanciones(cancion: Cancion){
-     this.canciones.push(cancion);
+    
+    this.canciones.push(cancion);
     let canciones: Cancion[] = [];
      if(localStorage.getItem('canciones') === null){
       canciones.push(cancion);
@@ -47,12 +48,13 @@ export class CancionService {
     }
    }
 
-   getCancion(cancion: Cancion){
+   getCancion(id: number){
+    let canciones: Cancion[] = [];
+    canciones = JSON.parse(localStorage.getItem('canciones'));
     for(let i=0; i < this.canciones.length; i++){
-      if(cancion == this.canciones[i])
+      if(id == this.canciones[i].id)
       {
-        this.canciones.splice(i,1);
-        localStorage.setItem('canciones', JSON.stringify(this.canciones));
+        return this.canciones.splice(i,1)[0];
       }
     }
    }
