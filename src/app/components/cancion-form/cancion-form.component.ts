@@ -44,20 +44,19 @@ export class CancionFormComponent implements OnInit {
 
   addCancion(Nombre: HTMLInputElement , Artista: HTMLInputElement, Album: HTMLInputElement, Anio: HTMLInputElement, Genero: HTMLInputElement){
     console.log('Agregando..', Nombre.value);
-    this.todasCanciones = this.cancionServicio.getCanciones();
-    this.id = Math.max.apply(Math, this.todasCanciones.map(function(Cancion) { return Cancion.id; }))
-    this.id = this.id + 1;
     this.cancionServicio.addCanciones(
       {
-        id: this.id,
-        nombre: Nombre.value,
+        id:0,
+        cancion: Nombre.value,
         artista: Artista.value,
         album: Album.value,
         anio: Anio.value,
         genero: Genero.value,
         hide: true
       }
-      );
+      ).subscribe((data) => {
+        console.log('agregado')
+      });
       
       this.success("Se agregó " + Nombre.value + " de " + Artista.value + " a la lista.");
       Nombre.value='';

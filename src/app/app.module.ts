@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +15,7 @@ import { CancionEditComponent } from './components/cancion-edit/cancion-edit.com
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { CancionEliminarComponent } from './components/cancion-eliminar/cancion-eliminar.component';
 import { AlertModule, AlertService } from './_alert';
+import { from } from 'rxjs';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,7 @@ import { AlertModule, AlertService } from './_alert';
     AlertModule,
     NgbModule,
     FormsModule,
+    HttpClientModule,
     ReactiveFormsModule
   ],
   providers: [CancionService, AlertService],

@@ -11,10 +11,15 @@ export class CancionListComponent implements OnInit {
 
   canciones: Cancion[];
 
-  constructor(public CancionServicio: CancionService) { }
+  constructor(public CancionServicio: CancionService) { 
+    this.CancionServicio.getCanciones().subscribe(res => {
+      this.canciones = res;
+    });
+  }
 
   ngOnInit() {
-    this.canciones = this.CancionServicio.getCanciones();
+   
+    //this.canciones = this.CancionServicio.getCanciones();
   }
 
 }

@@ -41,16 +41,19 @@ export class CancionEditComponent implements OnInit {
   }
 
   editCancion(){
-    console.log(this.cancionObtenida);
-    console.log(this.cancionSerivcio.getCanciones());
-    this.cancionSerivcio.updateCancion(this.cancionObtenida);    
-    console.log(this.cancionSerivcio.getCanciones());
+    this.cancionSerivcio.updateCancion(this.cancionObtenida).subscribe((data) => {
+      console.log('modificado');
+    });
     this.goBack();
   }
 
   getCancion(): void {
     const id = +this.route.snapshot.paramMap.get('id');
-    this.cancionObtenida = this.cancionSerivcio.getCancion(id);
+    this.cancionSerivcio.getCancion(id).subscribe(res => {
+      this.cancionObtenida = res[0];
+      console.log(this.cancionObtenida)
+    });
+    //this.cancionObtenida = this.cancionSerivcio.getCancion(id);
   }
 
   goBack(): void {

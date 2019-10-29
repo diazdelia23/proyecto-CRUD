@@ -16,8 +16,10 @@ export class CancionComponent implements OnInit {
   }
 
   deleteCancion(cancion:Cancion){
-    if(confirm('¿Quieres eliminar ' + cancion.nombre + ' de ' + cancion.artista + ' ?')){
-      this.cancionSerivcio.deleteCancion(cancion);
+    if(confirm('¿Quieres eliminar ' + cancion.cancion + ' de ' + cancion.artista + ' ?')){
+      this.cancionSerivcio.deleteCancion(cancion).subscribe((data) => {
+        console.log('eliminado');
+      });
     }
     
   }

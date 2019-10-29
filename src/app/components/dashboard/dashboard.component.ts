@@ -28,7 +28,11 @@ export class DashboardComponent implements OnInit {
 
  
   ngOnInit() {
-    this.canciones = this.CancionServicio.getCanciones().slice(0,4);
+    this.CancionServicio.getCanciones().subscribe(res => {
+      this.canciones = res;
+      this.canciones.slice(0,4);
+    })
+    //this.canciones = this.CancionServicio.getCanciones().slice(0,4);
   }
 
 }

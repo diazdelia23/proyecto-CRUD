@@ -1,77 +1,34 @@
 import { Injectable } from '@angular/core';
 import { Cancion } from '../models/cancion';
 import { Observable, of } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CancionService {
+  readonly baseUrl = 'http://localhost:3000/api/v1/canciones/';
+
   canciones: Cancion[];
-  constructor() {
-    this.canciones = [
-      //{nombre: 'Imagine', artista: 'Ariana Grande', album: 'thank u, next', anio: '2019', genero: 'pop', hide: true},
-      //{nombre: '7 Rings', artista: 'Ariana Grande', album: 'thank u, next', anio: '2019', genero: 'pop', hide:true}
-    ]
-   }
+  constructor(private http: HttpClient) {}
 
-   getCanciones(){
-     if(localStorage.getItem('canciones') === null){
-       return this.canciones;
-     } else {
-       this.canciones = JSON.parse(localStorage.getItem('canciones'));
-       return this.canciones;
-     }
-   }
+  getCanciones(): Observable<Cancion[]> {
+    return this.http.get<Cancion[]>(this.baseUrl);
+  }
 
-   addCanciones(cancion: Cancion){
-    
-    this.canciones.push(cancion);
-    let canciones: Cancion[] = [];
-     if(localStorage.getItem('canciones') === null){
-      canciones.push(cancion);
-      localStorage.setItem('canciones', JSON.stringify(canciones));
-     } else{
-       canciones = JSON.parse(localStorage.getItem('canciones'));
-       canciones.push(cancion);
-       localStorage.setItem('canciones', JSON.stringify(canciones));
-     }
-     
-   }
+  addCanciones(cancion: Cancion): Observable<Cancion> {
+    return this.http.post<Cancion>(this.baseUrl, cancion);
+  }
 
-   deleteCancion(cancion: Cancion){
-    for(let i=0; i < this.canciones.length; i++){
-      if(cancion == this.canciones[i])
-      {
-        this.canciones.splice(i,1);
-        localStorage.setItem('canciones', JSON.stringify(this.canciones));
-      }
-    }
-   }
+  deleteCancion(cancion: Cancion): Observable<any> {
+    return this.http.delete(this.baseUrl+cancion.id);
+  }
 
-   getCancion(id: number){
-    let canciones: Cancion[] = [];
-    canciones = JSON.parse(localStorage.getItem('canciones'));
-    for(let i=0; i < this.canciones.length; i++){
-      if(id == this.canciones[i].id)
-      {
-        return this.canciones.splice(i,1)[0];
-      }
-    }
-   }
+  getCancion(id: number): Observable<any> {
+    return this.http.get(this.baseUrl+id);
+  }
 
-   updateCancion(cancion: Cancion){
-    //this.canciones.push(cancion);
-    let canciones: Cancion[] = [];
-    canciones = JSON.parse(localStorage.getItem('canciones'));
-    console.log(canciones);
-    for(let i=0; i < this.canciones.length; i++){
-      if(cancion.id == this.canciones[i].id)
-      {
-        console.log(cancion);
-        canciones.splice(i,1,cancion);
-      }
-    }
-    console.log(canciones);
-    localStorage.setItem('canciones', JSON.stringify(canciones));   
-   }
+  updateCancion(cancion: Cancion): Observable<Object> {
+    return this.http.put(this.baseUrl+cancion.id, cancion);
+  }
 }

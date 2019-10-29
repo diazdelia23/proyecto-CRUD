@@ -1,6 +1,6 @@
 export class Cancion {
     id: number;
-    nombre: string;
+    cancion: string;
     artista: string;
     album: string;
     anio: string;
