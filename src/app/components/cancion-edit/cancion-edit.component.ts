@@ -37,6 +37,9 @@ export class CancionEditComponent implements OnInit {
 
   ngOnInit() {
     this.getCancion();
+    var fecha = new Date();
+    var ano = fecha.getFullYear().toString();
+    document.getElementById("anio").setAttribute("max", ano);
     this.validar();    
   }
 

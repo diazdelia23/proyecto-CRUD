@@ -15,11 +15,15 @@ export class CancionFormComponent implements OnInit {
 
   cancion: Cancion = new Cancion();
   constructor(public cancionServicio : CancionService, private alertService: AlertService, private formBuilder: FormBuilder) { 
+    
     this.validar();
     
   }
   
   ngOnInit() {
+    var fecha = new Date();
+    var ano = fecha.getFullYear().toString();
+    document.getElementById("anio").setAttribute("max", ano);
   }
 
   cancionForm: any;
@@ -35,6 +39,8 @@ export class CancionFormComponent implements OnInit {
       gender: ['', [Validators.required, Validators.maxLength(100)]]
     });
   }
+
+  
 
 
 
