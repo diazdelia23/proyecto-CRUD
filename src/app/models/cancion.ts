@@ -5,5 +5,5 @@ export class Cancion {
     album: string;
     anio: string;
     genero: string;
-    hide: true;
+    hide: boolean = true;
 }
